@@ -1,4 +1,4 @@
-import { Container, Row, Col, Form, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Card, Jumbotron } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./home.css"
@@ -20,7 +20,9 @@ const HomeSearch = () => {
       const data = await response.json();
       console.log(data);
       setJob(data.data);
-    } else console.log("There was an error");
+    } else {
+     console.log("There was an error")
+    }
   };
 
   const handleChange = (e) => {
@@ -33,12 +35,14 @@ const HomeSearch = () => {
   };
 
   return (
+    <>
+    <Jumbotron fluid id="jumbotron-home" >
     <Container>
-      <Row>
-        <Col md={10}>
-          <h4>Search for Jobs</h4>
-        </Col>
-        <Col md={6}>
+    <Row>
+     
+       
+        <Col md={4} >
+        <h4>Search for Jobs</h4>
           <Form onSubmit={handleSubmit}>
             <Form.Control
               type="search"
@@ -48,7 +52,15 @@ const HomeSearch = () => {
             />
           </Form>
         </Col>
+        <Col md={8}>
+        <img src="/assets/img1.png" alt="" id="img-jumbo"/> 
+        </Col>
       </Row>
+    </Container>
+  </Jumbotron>
+
+
+    <Container className="my-5">
 
       <Row>
         {" "}
@@ -69,6 +81,7 @@ const HomeSearch = () => {
         ))}{" "}
       </Row>
     </Container>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@
 #card {
     border: 1px solid wheat;
     background-color: white;
+    color: #2F2E41
     
 }
 
@@ -11,3 +12,4 @@
     font-weight: 600;
     border: 1px solid wheat;
 }
+
