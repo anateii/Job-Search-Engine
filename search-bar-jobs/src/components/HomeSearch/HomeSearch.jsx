@@ -42,7 +42,7 @@ const HomeSearch = () => {
      
        
         <Col md={4} >
-        <h4>Search for Jobs</h4>
+        <h4 style={{color: "#2F2E41"}}>Start your Search</h4>
           <Form onSubmit={handleSubmit}>
             <Form.Control
               type="search"
