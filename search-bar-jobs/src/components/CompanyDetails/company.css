@@ -1,0 +1,13 @@
+
+#card {
+    border: 1px solid wheat;
+    background-color: white;
+    
+}
+
+#header {
+
+    background-color: wheat;
+    font-weight: 600;
+    border: 1px solid wheat;
+}

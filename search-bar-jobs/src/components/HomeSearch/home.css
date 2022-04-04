@@ -1,0 +1,16 @@
+#card {
+    background-color: wheat;
+}
+
+#card a {
+    text-decoration: none;
+    color: rgb(30, 29, 29);
+   
+}
+
+#card a:hover {
+    background-color: #e0b6b6;
+    border-radius: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
