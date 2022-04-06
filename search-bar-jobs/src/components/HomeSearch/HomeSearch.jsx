@@ -1,9 +1,34 @@
-import { Container, Row, Col, Form, Card, Jumbotron } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Card,
+  Jumbotron,
+  Button,
+} from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./home.css"
+import "./home.css";
+import { connect } from "react-redux";
+import { addToFavAction } from "../../redux/actions";
+import Favourites from "../Favourites/Favourites";
 
-const HomeSearch = () => {
+
+
+const mapStateToProps=(state) => ({
+
+})
+
+const mapDispatchToProps =(dispatch) => ({
+  addToFav: (company) => {
+    dispatch(addToFavAction(company))
+  },
+})
+
+
+
+const HomeSearch = (props) => {
   const [job, setJob] = useState([]);
   const [input, setInput] = useState("");
 
@@ -21,7 +46,7 @@ const HomeSearch = () => {
       console.log(data);
       setJob(data.data);
     } else {
-     console.log("There was an error")
+      console.log("There was an error");
     }
   };
 
@@ -36,53 +61,59 @@ const HomeSearch = () => {
 
   return (
     <>
-    <Jumbotron fluid id="jumbotron-home" >
-    <Container>
-    <Row>
-     
-       
-        <Col md={4} >
-        <h4 style={{color: "#2F2E41"}}>Start your Search</h4>
-          <Form onSubmit={handleSubmit}>
-            <Form.Control
-              type="search"
-              value={input}
-              onChange={handleChange}
-              placeholder="Search for..."
-            />
-          </Form>
-        </Col>
-        <Col md={8}>
-        <img src="/assets/img1.png" alt="" id="img-jumbo"/> 
-        </Col>
-      </Row>
-    </Container>
-  </Jumbotron>
+      <Jumbotron fluid id="jumbotron-home">
+        <Container>
+          <Row>
+            <Col md={4}>
+              <h4 style={{ color: "#2F2E41" }}>Start your Search</h4>
+              <Form onSubmit={handleSubmit}>
+                <Form.Control
+                  type="search"
+                  value={input}
+                  onChange={handleChange}
+                  placeholder="Search for..."
+                />
+              </Form>
+            </Col>
+            <Col md={8}>
+              <img src="/assets/img1.png" alt="" id="img-jumbo" />
+            </Col>
+          </Row>
+        </Container>
+      </Jumbotron>
 
-
-    <Container className="my-5">
-
-      <Row>
-        {" "}
-        {job.map((el) => (
-          <Col md={3}>
-            <Card className="mt-3" id="card">
-              <Card.Body>
-                <Card.Title>{el.title}</Card.Title>
-                <Card.Text>{el.category}</Card.Text>
-                <Card.Text>
-                  <Link to={`/${el.company_name}`}>
-                  {el.company_name}
-                </Link>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}{" "}
-      </Row>
-    </Container>
+      <Container className="my-5">
+        <Row>
+          {" "}
+          {job.map((el) => (
+           <>
+              <Col md={3}>
+                <Card className="mt-3" id="card">
+                  <Card.Body>
+                    <Card.Title>{el.title}</Card.Title>
+                    <Card.Text>{el.category}</Card.Text>
+                    <Card.Text>
+                      <Link to={`/${el.company_name}`}>{el.company_name}</Link>
+                    </Card.Text>
+             
+                     <Link to="/favourites">
+                        <Button variant="dark"
+                        onClick={()=>{
+                         props.addToFav(el)
+                        }}
+                        >Add to Favourite</Button>
+                     </Link>
+                  </Card.Body>
+                </Card>
+              </Col>
+      
+           </>
+          ))}{" "}
+        </Row>
+      </Container>
+      
     </>
   );
 };
 
-export default HomeSearch;
+export default connect(mapStateToProps, mapDispatchToProps)(HomeSearch);
