@@ -6,12 +6,14 @@ import CompanyDetails from "./components/CompanyDetails/CompanyDetails.jsx"
 import Favourites from "./components/Favourites/Favourites"
 import configureStore from "./redux/store";
 import { Provider } from "react-redux";
+import MyNavbar from './components/Navbar/MyNavbar.jsx';
 
 
 function App() {
   return (
     <Provider store= {configureStore}>
       <BrowserRouter>
+      <MyNavbar />
         <Routes>
           <Route path="/" element={<HomeSearch />} />
           <Route path="/:company" element={<CompanyDetails />} /> 

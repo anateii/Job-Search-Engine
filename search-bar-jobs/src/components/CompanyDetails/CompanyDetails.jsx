@@ -21,7 +21,7 @@ const CompanyDetails = () => {
   };
 
   return (
-    <Container className="mt-5 p-5">
+    <Container className="mt-5 py-5">
       <h4 className="mt-5 mb-5" style={{color: "#2F2E41"}}>👉 All the available Jobs listed by: {company}</h4>
       <Row>
         {jobs.map((job) => (

@@ -3,18 +3,25 @@ import { initialState } from '../store'
 
 
 const mainReducer = (state=initialState, action) => {
-switch(action.type) {
-    case ADD_TO_FAVOURITES:
-     return {
-         ...state,
-         companies: {
-             ...state.companies,
-             favourites: [...state.companies.favourites, action.payload]
+const newStore = (() => {
+    switch(action.type) {
+        case ADD_TO_FAVOURITES:
+         return {
+             ...state,
+             companies: {
+                 ...state.companies,
+                 favourites: [...state.companies.favourites, action.payload]
+             }
          }
-     }
-     default:
-        return state
-}
+         default:
+            return state
+    }
+})()
+
+localStorage.setItem('STORE', JSON.stringify(newStore))
+
+
+return newStore
 
 }
 

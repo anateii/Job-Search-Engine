@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import "./home.css";
 import { connect } from "react-redux";
 import { addToFavAction } from "../../redux/actions";
-import Favourites from "../Favourites/Favourites";
+
 
 
 

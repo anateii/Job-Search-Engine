@@ -1,0 +1,22 @@
+.navbar {
+    color: #2F2E41;
+    font-weight: 500;
+}
+
+
+
+
+#icons-wrapper:hover {
+    color: darksalmon
+}
+
+a {
+    text-decoration: none;
+    color:#2F2E41
+}
+
+ a:hover {
+    text-decoration: none;
+    color:#2F2E41
+    
+} 
