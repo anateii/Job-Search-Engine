@@ -22,14 +22,14 @@ const mapDispatchToProps =(dispatch) => ({
 const Favourites = ({ companies , removeFromFav}) => {
   return (
     <div className="mt-5 py-5 container">
-      <h4 className="mt-5 mb-5">❤️ Take a look at your Favourite Jobs:</h4>
+      <h4 className="mt-5 mb-5 px-2"> ❤️Take a look at your Favourite Jobs:</h4>
 
       <Container>
         <Row>
       {companies.map((job, i) => (
        
       
-            <Col  key={i} mb={3}>
+            <Col key={i} sm={4}>
                 <Card className="my-4" >
                  <Card.Header className="px-3" id="header">
                      <h3>{job.title}</h3>
