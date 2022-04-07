@@ -38,7 +38,7 @@ const HomeSearch = (props) => {
 
   const fetchJobs = async (query) => {
     const response = await fetch(
-      `https://strive-jobs-api.herokuapp.com/jobs?search=${query}&limit=10`
+      `https://strive-jobs-api.herokuapp.com/jobs?search=${query || "developer"}&limit=10`
     );
 
     if (response.ok) {
@@ -96,13 +96,13 @@ const HomeSearch = (props) => {
                       <Link to={`/${el.company_name}`}>{el.company_name}</Link>
                     </Card.Text>
              
-                     <Link to="/favourites">
+                     
                         <Button variant="dark"
                         onClick={()=>{
                          props.addToFav(el)
                         }}
                         >Add to Favourite</Button>
-                     </Link>
+                    
                   </Card.Body>
                 </Card>
               </Col>

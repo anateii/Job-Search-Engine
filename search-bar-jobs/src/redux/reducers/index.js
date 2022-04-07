@@ -1,4 +1,4 @@
-import { ADD_TO_FAVOURITES} from '../actions'
+import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES} from '../actions'
 import { initialState } from '../store'
 
 
@@ -13,6 +13,15 @@ const newStore = (() => {
                  favourites: [...state.companies.favourites, action.payload]
              }
          }
+
+         case REMOVE_FROM_FAVOURITES:
+             return {
+                 ...state,
+                 companies : {
+                     ...state.companies,
+                     favourites: state.companies.favourites.filter((job,i)=> i !== action.payload)
+                 }
+             }
          default:
             return state
     }
