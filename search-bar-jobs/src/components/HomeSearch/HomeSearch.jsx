@@ -10,13 +10,14 @@ import {
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./home.css";
-import { connect } from "react-redux";
+//import { connect } from "react-redux";
 import { addToFavAction } from "../../redux/actions";
+import {  useDispatch } from 'react-redux'
 
 
 
 
-const mapStateToProps=(state) => ({
+/* const mapStateToProps=(state) => ({
 
 })
 
@@ -24,7 +25,7 @@ const mapDispatchToProps =(dispatch) => ({
   addToFav: (company) => {
     dispatch(addToFavAction(company))
   },
-})
+}) */
 
 
 
@@ -32,9 +33,17 @@ const HomeSearch = (props) => {
   const [job, setJob] = useState([]);
   const [input, setInput] = useState("");
 
+
   useEffect(() => {
     fetchJobs();
   }, []);
+
+  const dispatch = useDispatch()
+
+
+
+
+
 
   const fetchJobs = async (query) => {
     const response = await fetch(
@@ -99,7 +108,8 @@ const HomeSearch = (props) => {
                      
                         <Button variant="dark"
                         onClick={()=>{
-                         props.addToFav(el)
+                         //props.addToFav(el)
+                         dispatch(addToFavAction(el))
                         }}
                         >Add to Favourite</Button>
                     
@@ -116,4 +126,5 @@ const HomeSearch = (props) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeSearch);
+//export default connect(mapStateToProps, mapDispatchToProps)(HomeSearch);
+export default HomeSearch

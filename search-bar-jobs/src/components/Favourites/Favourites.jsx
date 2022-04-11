@@ -1,13 +1,14 @@
-import { connect } from "react-redux";
+//import { connect } from "react-redux";
 import { Card, Col, Container, Row} from "react-bootstrap";
 import "../CompanyDetails/company.css";
 import { removeFromFavAction } from "../../redux/actions";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 
 
 
-const mapStateToProps = (state) => ({
+/* const mapStateToProps = (state) => ({
   companies: state.companies.favourites,
 });
 
@@ -16,10 +17,16 @@ const mapDispatchToProps =(dispatch) => ({
   removeFromFav: (index) => {
     dispatch(removeFromFavAction(index))
   }
-})
+}) */
 
 
-const Favourites = ({ companies , removeFromFav}) => {
+const Favourites = () => {
+
+const companies = useSelector(state => state.companies.favourites)
+const dispatch = useDispatch()
+
+
+
   return (
     <div className="mt-5 py-5 container">
       <h4 className="mt-5 mb-5 px-2"> ❤️Take a look at your Favourite Jobs:</h4>
@@ -41,7 +48,7 @@ const Favourites = ({ companies , removeFromFav}) => {
                           </Link>
                           <p>{job.salary}</p>
                         </Card.Text>
-                        <i onClick={(()=>{removeFromFav(i)})} class="bi bi-heartbreak"></i>
+                        <i onClick={()=>dispatch(removeFromFavAction(i))} class="bi bi-heartbreak"></i>
                       </Card.Body>
                 </Card>
              </Col>
@@ -54,4 +61,5 @@ const Favourites = ({ companies , removeFromFav}) => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Favourites);
+//export default connect(mapStateToProps, mapDispatchToProps)(Favourites);
+export default Favourites
