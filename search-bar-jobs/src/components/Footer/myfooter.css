@@ -1,0 +1,19 @@
+#footer-wrapper {
+    background-color:wheat; 
+    min-width: -webkit-fill-available;
+    color: #2F2E41 !important;
+    text-align: center;
+    
+}
+
+#content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    column-gap: 0.5rem;
+    justify-content: center;
+}
+
+footer {
+    margin-top: 1.5rem;
+}

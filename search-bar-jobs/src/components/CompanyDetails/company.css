@@ -19,3 +19,10 @@
 .card {
     border: 1px solid wheat;
 }
+
+.card-text>a>h6:hover {
+background-color: wheat;
+border-radius: 10px;
+font-weight: 700;
+width:fit-content
+}

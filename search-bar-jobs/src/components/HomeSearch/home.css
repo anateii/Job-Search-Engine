@@ -9,10 +9,15 @@
    
 }
 
+.btn {
+    background-color: #2F2E41;
+}
+
 #card a:hover {
     background-color: wheat;
-    border-radius: 2px;
-    font-weight: 500;
+    border-radius: 10px;
+    font-weight: 700;
+
 }
 
 .form-control:focus {
@@ -40,3 +45,9 @@
     flex-direction: column;
     align-self: center;
 }
+
+
+@media (min-width: 576px)
+{.jumbotron {
+    padding: 2rem 2rem;
+}}

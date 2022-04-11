@@ -5,6 +5,7 @@ import HomeSearch from "./components/HomeSearch/HomeSearch.jsx";
 import CompanyDetails from "./components/CompanyDetails/CompanyDetails.jsx";
 import Favourites from "./components/Favourites/Favourites";
 import MyNavbar from "./components/Navbar/MyNavbar.jsx";
+import MyFooter from "./components/Footer/MyFooter";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/:company" element={<CompanyDetails />} />
         <Route path="/favourites" element={<Favourites />} />
       </Routes>
+      <MyFooter/>
     </BrowserRouter>
   );
 }
