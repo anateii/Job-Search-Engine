@@ -3,7 +3,7 @@ import { initialState } from '../store'
 
 
 const mainReducer = (state=initialState, action) => {
-const newStore = (() => {
+//const newStore = (() => {
     switch(action.type) {
         case ADD_TO_FAVOURITES:
          return {
@@ -25,12 +25,13 @@ const newStore = (() => {
          default:
             return state
     }
-})()
+//}
+//)()
 
-localStorage.setItem('STORE', JSON.stringify(newStore))
+//localStorage.setItem('STORE', JSON.stringify(newStore))
 
 
-return newStore
+//return newStore
 
 }
 
