@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Provider } from "react-redux";
-import { configureStore, persistor } from "./redux/store";
+import { configureStore, persistor} from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.render(
