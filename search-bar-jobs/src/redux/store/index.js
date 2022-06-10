@@ -18,7 +18,7 @@ export const initialState = //localStorage.getItem("STORE")
       storage: localStorage,
       transforms: [
         encryptTransform({
-          secretKey: process.env.REACT_APP_SECRET_KEY,
+          secretKey: '345_ABC_Y3AR',//process.env.REACT_APP_SECRET_KEY,
           // you should not write the secretKey here in the code
           onError: (error) => {
             console.log(error)
